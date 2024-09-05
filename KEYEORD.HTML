@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Applicant Filter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Job Applicant Filter</h1>
+        <div class="form-group">
+            <label for="fileInput" class="file-label">Upload XLSX File:</label>
+            <input type="file" id="fileInput" accept=".xlsx" class="file-input">
+        </div>
+        <div class="form-group">
+            <label for="keywords">Enter Keywords:</label>
+            <input type="text" id="keywords" placeholder="Enter keywords separated by commas" class="text-input">
+        </div>
+        <div class="form-group">
+            <label>Match Type:</label>
+            <label>
+                <input type="radio" name="matchType" value="all" checked> All keywords must be present
+            </label>
+            <label>
+                <input type="radio" name="matchType" value="any"> Any keyword must be present
+            </label>
+        </div>
+        <button onclick="processFile()" class="submit-button">Filter Applicants</button>
+        <div id="noResultsMessage" class="no-results-message">No results found.</div>
+        <div id="dataInsights" class="data-insights"></div>
+        <table id="resultsTable" class="results-table">
+            <thead>
+                <tr>
+                    <th>Job Application</th>
+                    <th>Stage</th>
+                    <th>Skills</th>
+                    <th>Resume Text</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filtered results will be displayed here -->
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
